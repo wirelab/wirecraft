@@ -1,0 +1,36 @@
+// Breakpoints
+$breakpoints: (
+   'xsmall' : 359px,
+   'mobile-small' : 400px,
+   'mobile' : 668px,
+   'phablet' : 768px,
+   'tablet-p' : 800px,
+   'tablet-costum': 860px,
+   'tablet' : 1023px,
+   'smallerscreen' : 1200px,
+   'smallscreen' : 1270px,
+   'netbook' : 1365px,
+   'desktop' : 1440px,
+);
+
+@mixin respond-to($breakpoint) {
+   // Retrieves the value from the key
+   $value: map-get($breakpoints, $breakpoint);
+
+   // If the key exists in the map
+   @if $breakpoint=='desktop' {
+
+      // Prints a media query based on the value
+      @media (min-width: $value) {
+         @content;
+      }
+   }
+
+   @else if $value !=null {
+
+      // Prints a media query based on the value
+      @media (max-width: $value) {
+         @content;
+      }
+   }
+}

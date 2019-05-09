@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+      {% do view.registerCssFile("/assets/app.css" | bustThatCache) %}
+
+       {# Set the alternate languages #}
+       {% set sites = craft.app.sites.getAllSites() %}
+
+       {% if sites | length > 1 %}
+           {% for site in sites %}
+               {% if site.id != currentSite.id %}
+                  <link rel="alternate" href="{{ site.baseUrl }}" hreflang="{{ site.language }}" />
+               {% endif %}
+           {% endfor %}
+       {% endif %}
+
+       {% hook "seo" %}
+   </head>
+   <body>
+
+      {% block content %}
+      {% endblock %}
+      
+
+      {% do view.registerJsFile("/assets/app.bundle.js" | bustThatCache) %}
+   </body>
+</html>

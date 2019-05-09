@@ -1,0 +1,38 @@
+{
+   "name": "roy-veldman/wirecraft",
+   "description": "Standard Craft install for Wirelab projects",
+   "version": "1.1.3",
+  "authors": [
+    {
+      "name": "Roy Veldman",
+      "email": "royveldman@live.nl",
+      "homepage": "https://wirelab.nl",
+      "role": "Full Stack Developer"
+    }
+  ],
+  "license": "MIT",
+  "require": {
+    "craftcms/cms": "3.1.7",
+    "vlucas/phpdotenv": "^2.4.0",
+    "ether/seo": "3.5.4",
+    "verbb/super-table": "2.1.6",
+    "craftcms/redactor": "2.3.1",
+    "superbig/craft-entry-instructions": "1.0.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "modules\\": "modules/"
+    }
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "platform": {
+      "php": "7.0"
+    }
+  },
+  "scripts": {
+    "post-root-package-install": [
+      "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+    ]
+  }
+}
