@@ -1,13 +1,12 @@
 {
-   "name": "roy-veldman/wirecraft",
-   "description": "Standard Craft install for Wirelab projects",
-   "version": "1.1.3",
+  "name": "wirelab/wirecraft",
+  "description": "Standard Craft install for Wirelab projects",
+  "version": "1.1.3",
   "authors": [
     {
-      "name": "Roy Veldman",
-      "email": "royveldman@live.nl",
-      "homepage": "https://wirelab.nl",
-      "role": "Full Stack Developer"
+      "name": "Wirelab",
+      "email": "algemeen@wirelab.nl",
+      "homepage": "https://wirelab.nl"
     }
   ],
   "license": "MIT",

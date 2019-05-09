@@ -1,6 +1,6 @@
 {
    "name": "wirecraft",
-   "version": "1.10.0",
+   "version": "1.22.0",
    "description": "",
    "main": "webpack.common.js",
    "scripts": {
@@ -9,9 +9,11 @@
    },
    "author": "Wirelab",
    "license": "ISC",
+   "browserslist": "last 2 Chrome versions, last 2 firefox versions, last 2 safari versions, last 2 ios versions, ie 11",
    "devDependencies": {
       "@babel/core": "^7.4.4",
       "@babel/preset-env": "^7.4.4",
+      "autoprefixer": "^9.5.1",
       "babel-loader": "^8.0.5",
       "browser-sync": "^2.26.5",
       "browser-sync-webpack-plugin": "^2.2.2",
@@ -35,6 +37,7 @@
       "webpack-merge": "^4.2.1"
    },
    "dependencies": {
-      "autoprefixer": "^9.5.1"
+      "core-js": "^3.0.1",
+      "regenerator-runtime": "^0.13.2"
    }
 }
