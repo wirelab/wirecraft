@@ -1,7 +1,7 @@
 # Wirelab Default Craft Installation
 
 ## Build instructions
-1. `composer create-project roy-veldman/wirecraft [projectname]`
+1. `composer create-project wirelab/wirecraft [projectname]`
 2. `cd` into the project
 3. create database
    - `mysql -u [username]` (add `-p` if you have a password)
