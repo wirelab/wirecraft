@@ -1,5 +1,5 @@
 const path = require("path");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
@@ -40,7 +40,8 @@ const configureBabelLoader = () => {
               corejs: 3
             }
           ]
-        ]
+        ],
+        plugins: ["@babel/plugin-syntax-dynamic-import"]
       }
     }
   };
@@ -62,7 +63,7 @@ const configureCssLoader = () => {
         loader: "sass-loader",
         options: {
           sourceMap: true,
-          data: `
+          prependData: `
                         @import "./src/scss/abstracts/_variables.scss";
                         @import "./src/scss/abstracts/_mixins.scss";
                     `
@@ -118,6 +119,8 @@ module.exports = {
   ],
   output: {
     filename: "[name].bundle.js",
-    path: assetOutput
+    chunkFilename: "[name].bundle.js",
+    path: assetOutput,
+    publicPath: "assets/"
   }
 };
