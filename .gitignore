@@ -1,0 +1,12 @@
+.idea
+.vscode
+
+vendor
+node_modules
+
+!storage/.keep
+web/assets/uploads/*
+!web/assets/uploads/.gitkeep
+
+.DS_Store
+.env
