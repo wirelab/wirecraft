@@ -1,6 +1,6 @@
 {
   "name": "wirecraft",
-  "version": "1.50.0",
+  "version": "1.60.0",
   "description": "",
   "main": "webpack.common.js",
   "scripts": {
@@ -11,6 +11,7 @@
     "analyze-bundle": "npm run build -- --env.includeBundleAnalyzer",
     "analyze-bundle-legacy": "npm run build-legacy -- --env.includeBundleAnalyzer"
   },
+  "browserslist": "last 2 Chrome versions, last 2 firefox versions, last 2 safari versions, last 2 ios versions, last 2 edge versions",
   "author": "Wirelab",
   "license": "ISC",
   "devDependencies": {

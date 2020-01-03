@@ -14,6 +14,14 @@ const cleanFiles = [
 ];
 const assetOutput = path.resolve(__dirname, "web/assets");
 
+const getBrowsersList = env => {
+  let browserslist = require("./package.json").browserslist;
+  if (env.supportLegacyBrowsers) {
+    browserslist = `${browserslist}, IE 11`;
+  }
+  return browserslist;
+};
+
 const configureStaticFiles = [
   {
     context: "./src/fonts",
@@ -28,12 +36,6 @@ const configureStaticFiles = [
 ];
 
 const configureBabelLoader = env => {
-  let browserlist =
-    "last 2 Chrome versions, last 2 firefox versions, last 2 safari versions, last 2 ios versions, last 2 edge versions";
-  if (env.supportLegacyBrowsers) {
-    browserlist = `${browserlist}, IE 11`;
-  }
-
   return {
     test: /\.m?js/,
     exclude: /(node_modules)/,
@@ -46,7 +48,7 @@ const configureBabelLoader = env => {
             {
               useBuiltIns: "entry",
               corejs: 3,
-              targets: browserlist
+              targets: getBrowsersList(env)
             }
           ]
         ],
@@ -56,7 +58,7 @@ const configureBabelLoader = env => {
   };
 };
 
-const configureCssLoader = () => {
+const configureCssLoader = env => {
   return {
     test: /\.scss$/,
     use: [
@@ -67,7 +69,21 @@ const configureCssLoader = () => {
           sourceMap: true
         }
       },
-      "postcss-loader",
+      {
+        loader: "postcss-loader",
+        options: {
+          ident: "postcss",
+          plugins: [
+            require("autoprefixer")({
+              ...(env.supportLegacyBrowsers
+                ? {
+                    overrideBrowserslist: getBrowsersList(env)
+                  }
+                : {})
+            })
+          ]
+        }
+      },
       {
         loader: "sass-loader",
         options: {
@@ -109,7 +125,7 @@ module.exports = env => {
     module: {
       rules: [
         configureBabelLoader(env),
-        configureCssLoader(),
+        configureCssLoader(env),
         configureFileLoader(),
         configureVueLoader()
       ]
