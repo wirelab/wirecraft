@@ -1,43 +1,47 @@
 {
-   "name": "wirecraft",
-   "version": "1.22.0",
-   "description": "",
-   "main": "webpack.common.js",
-   "scripts": {
-      "dev": "webpack --watch --config webpack.dev.js",
-      "build": "npm version minor --no-git-tag-version && webpack --config webpack.prod.js"
-   },
-   "author": "Wirelab",
-   "license": "ISC",
-   "browserslist": "last 2 Chrome versions, last 2 firefox versions, last 2 safari versions, last 2 ios versions, ie 11",
-   "devDependencies": {
-      "@babel/core": "^7.4.4",
-      "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-      "@babel/preset-env": "^7.4.4",
-      "autoprefixer": "^9.5.1",
-      "babel-loader": "^8.0.5",
-      "browser-sync": "^2.26.5",
-      "browser-sync-webpack-plugin": "^2.2.2",
-      "clean-webpack-plugin": "^3.0.0",
-      "copy-webpack-plugin": "^5.0.3",
-      "css-loader": "^3.2.0",
-      "file-loader": "^4.2.0",
-      "gulp-connect-php": "^1.0.3",
-      "mini-css-extract-plugin": "^0.8.0",
-      "node-sass": "^4.12.0",
-      "optimize-css-assets-webpack-plugin": "^5.0.1",
-      "postcss-loader": "^3.0.0",
-      "sass-loader": "^8.0.0",
+  "name": "wirecraft",
+  "version": "1.50.0",
+  "description": "",
+  "main": "webpack.common.js",
+  "scripts": {
+    "dev": "webpack --watch --config webpack.dev.js",
+    "dev-legacy": "npm run dev -- --env.supportLegacyBrowsers",
+    "build": "npm version minor --no-git-tag-version && webpack --config webpack.prod.js",
+    "build-legacy": "npm run build -- --env.supportLegacyBrowsers",
+    "analyze-bundle": "npm run build -- --env.includeBundleAnalyzer",
+    "analyze-bundle-legacy": "npm run build-legacy -- --env.includeBundleAnalyzer"
+  },
+  "author": "Wirelab",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.4.4",
+    "autoprefixer": "^9.5.1",
+    "babel-loader": "^8.0.5",
+    "browser-sync": "^2.26.5",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.0.3",
+    "css-loader": "^3.2.0",
+    "file-loader": "^5.0.2",
+    "gulp-connect-php": "^1.0.3",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.12.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.1",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^8.0.0",
     "terser-webpack-plugin": "^2.3.1",
-      "vue": "^2.5.21",
-      "vue-loader": "^15.4.2",
-      "vue-template-compiler": "^2.5.21",
-      "webpack": "^4.31.0",
+    "vue": "^2.5.21",
+    "vue-loader": "^15.4.2",
+    "vue-template-compiler": "^2.5.21",
+    "webpack": "^4.41.5",
     "webpack-bundle-analyzer": "^3.6.0",
-      "webpack-merge": "^4.2.1"
-   },
-   "dependencies": {
-      "core-js": "^3.0.1",
-      "regenerator-runtime": "^0.13.2"
-   }
+    "webpack-cli": "^3.3.2",
+    "webpack-merge": "^4.2.1"
+  },
+  "dependencies": {
+    "core-js": "^3.6.1",
+    "regenerator-runtime": "^0.13.2"
+  }
 }

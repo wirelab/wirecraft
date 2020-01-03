@@ -3,6 +3,8 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const BundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 
 const rootEntry = "./src/js/app.js";
 const cleanFiles = [
@@ -25,7 +27,13 @@ const configureStaticFiles = [
   }
 ];
 
-const configureBabelLoader = () => {
+const configureBabelLoader = env => {
+  let browserlist =
+    "last 2 Chrome versions, last 2 firefox versions, last 2 safari versions, last 2 ios versions, last 2 edge versions";
+  if (env.supportLegacyBrowsers) {
+    browserlist = `${browserlist}, IE 11`;
+  }
+
   return {
     test: /\.m?js/,
     exclude: /(node_modules)/,
@@ -36,8 +44,9 @@ const configureBabelLoader = () => {
           [
             "@babel/preset-env",
             {
-              useBuiltIns: "usage",
-              corejs: 3
+              useBuiltIns: "entry",
+              corejs: 3,
+              targets: browserlist
             }
           ]
         ],
@@ -92,35 +101,40 @@ const configureVueLoader = () => {
   };
 };
 
-module.exports = {
-  entry: {
-    app: rootEntry
-  },
-  module: {
-    rules: [
-      configureBabelLoader(),
-      configureCssLoader(),
-      configureFileLoader(),
-      configureVueLoader()
-    ]
-  },
-  plugins: [
-    new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: cleanFiles.map(filePath =>
-        path.resolve(__dirname, filePath)
-      )
-    }),
-    new CopyWebpackPlugin(configureStaticFiles),
-    new VueLoaderPlugin(),
-    new MiniCssExtractPlugin({
-      filename: "[name].css",
-      chunkFilename: "[id].css"
-    })
-  ],
-  output: {
-    filename: "[name].bundle.js",
-    chunkFilename: "[name].bundle.js",
-    path: assetOutput,
-    publicPath: "assets/"
-  }
+module.exports = env => {
+  return {
+    entry: {
+      app: rootEntry
+    },
+    module: {
+      rules: [
+        configureBabelLoader(env),
+        configureCssLoader(),
+        configureFileLoader(),
+        configureVueLoader()
+      ]
+    },
+    plugins: [
+      new CleanWebpackPlugin({
+        cleanOnceBeforeBuildPatterns: cleanFiles.map(filePath =>
+          path.resolve(__dirname, filePath)
+        )
+      }),
+      new CopyWebpackPlugin(configureStaticFiles),
+      new VueLoaderPlugin(),
+      new MiniCssExtractPlugin({
+        filename: "[name].css",
+        chunkFilename: "[id].css"
+      }),
+      new BundleAnalyzerPlugin({
+        analyzerMode: env.includeBundleAnalyzer ? "server" : "disabled"
+      })
+    ],
+    output: {
+      filename: "[name].bundle.js",
+      chunkFilename: "[name].bundle.js",
+      path: assetOutput,
+      publicPath: "assets/"
+    }
+  };
 };
