@@ -28,6 +28,8 @@ return [
 
         // The secure key Craft will use for hashing and encrypting data
         'securityKey' => getenv('SECURITY_KEY'),
+        
+        'maxUploadFileSize' => 33554432,
     ],
 
     // Dev environment settings
@@ -37,6 +39,8 @@ return [
 
         // Dev Mode (see https://craftcms.com/support/dev-mode)
         'devMode' => true,
+
+        'enableTemplateCaching' => false
     ],
 
     // Staging environment settings
