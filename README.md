@@ -66,7 +66,7 @@ Finally, we need to setup the first asset folder (images)*
 * The static images are not uploaded into the assets folder. The assets are purely for Craft CMS and are not added to the git
 
 ### Common and known issues
-There are a few issues while installing the template you need to be careful of.
+There are a few issues while installing the template you need to be careful of. Many of the errors and issues are not very verbose in Craft CMS. So, if you run into things like : `an unknown error has occured` you can first verify that there isn't something wrong with your settings.
 
 #### PHP.ini
 There are some settings you need to change in the PHP.ini. The settings you need to change are usually already in the ini file, but as a comment so you can use `CRTL + F` to find the settings.
@@ -91,7 +91,8 @@ Finally, after making these changes restart your server.
 This issue sometimes happens after installing. When you changed all the php.ini settings run another `composer update`. This usually fixes the issue. If it doesn't: start Googling because this always worked for everyone so far. ):
 
 #### MySQL Database connection
-When using a newer version of MySQL the authentication method used by MySQL is not supported by Craft CMS. 
+When using a newer version of MySQL the authentication method used by MySQL is not supported by Craft CMS. You know you got this issue if after step 4 in the install procedure you can't continue. `./craft setup/index`. Because it won't recognise your Mysql.
+
  1. Log into mysql using `mysql -u [username] -p`
  2. `SELECT user, plugin FROM mysql.user;`
  3. Verify that the user you used for the database connection in this project (usually root) uses the `mysql_native_password` plugin. If it does, you can stop here.
