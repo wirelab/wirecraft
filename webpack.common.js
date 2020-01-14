@@ -132,9 +132,8 @@ module.exports = env => {
     },
     plugins: [
       new CleanWebpackPlugin({
-        cleanOnceBeforeBuildPatterns: cleanFiles.map(filePath =>
-          path.resolve(__dirname, filePath)
-        )
+        cleanOnceBeforeBuildPatterns: cleanFiles.map(filePath => path.resolve(__dirname, filePath)),
+        cleanStaleWebpackAssets: false
       }),
       new CopyWebpackPlugin(configureStaticFiles),
       new VueLoaderPlugin(),
