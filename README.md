@@ -1,71 +1,49 @@
 # Wirelab Default Craft Installation
+This is the wirelab (wirecraft) boilerplate for all our Craft CMS projects. 
 
-## Build instructions
-1. `composer create-project wirelab/wirecraft [projectname]`
-2. `cd` into the project
-3. create database
+## Getting Started
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+### Prerequisites
+Before installing you need the following software installed on your local machine:
+
+ 1. Composer ([link](https://getcomposer.org/))
+ 2. MySQL Server
+ 3. NodeJS (v12)
+ 4. PHP (7.2+)
+
+### Installing
+1. Create the project using either composer or git clone:
+    -  Composer: `composer create-project wirelab/wirecraft [projectname]` 
+    -  Git: `git clone https://github.com/wirelab/wirecraft.git [projectname]`
+2. `cd [projectname]` into the project
+3. Create database
    - `mysql -u [username]` (add `-p` if you have a password)
    - `create database [database-name];`
-4. run `./craft setup/index`
-5. run `composer update`
-6. run `npm install`
-7. run `npm run dev`
-8. Login to the back-end
-   - Setup the homepage
-   - Go to settings -> plugins, and install the plugins
-   - Create Assets in the uploads folder `@web/assets/uploads/{images}`
+4. Run `./craft setup/index` 
+    - Use as CMS username: `wirelab`
+    - Generate a password using 1password or another password generator
+5. Run `composer update`
+6. Run `npm install`
+7. Setup the environment file
+    - Run `cp .env.example .env` to create the environment file. 
+7. Run `npm run dev` and wait until it opens in your browser
+
+Then, we need to install all the plugins we use into your new project.
+1. Go to `http://localhost:1423/admin` and login using your credentials you set up earlier.
+2. Click `Settings -> Plugins`
+3. Install all plugins
+
+#### Setting up your project
+To setup the rest of your project, checkout the [Tutorials](https://github.com/wirelab/wirecraft/wiki/Tutorials)
+
+### Common and known issues
+When encountering issues while setting up, or later on in the project, please checkout the wiki page with [Known Issues](https://github.com/wirelab/wirecraft/wiki/Known-Issues).
    
-* Created an uploads folder for all the images and files you set-up in craft, this folder does not get pushed so you won't have any conflicts with local and production. The static images that are hardcoded or static icons are in the actual image or icons folder, these can be pushed.
-   
-### Production build
-run `npm run build` if you are ready for production, this will minify the javascript and css files.
-   
-## Starting instructions
-If you created a homepage on the back-end of craft, whether is a single page or a structure you can start with the code below.
-* Example of the filename `pages/_entry.twig`
+## Production build
+Run `npm run build` if you are ready for production, this will minify the javascript and css files.
 
-```twig
-{% extends 'layouts/_master' %}
-
-{% block content %}
-
-      {# content comes here #} 
-
-{% endblock %}
-```
-
-## Additional information
-
-#### VueJS
-* VueJs is already standard in the boilerplate, if you want to make use of it, follow the following steps:
-* Inside app.js
-```
-import Vue from 'vue'
-
-new Vue({
-    el: [targetElement]
-});
-```
-* Inside JS folder
-    * create components folder
-    * create `.vue` files
-* In the `.vue` files you can also access the global variables from your scss files, if you want to add or change this go into `webpack.common.js` and configure the `configureCssLoader()`
-
-#### Jquery
-* If you want to use Jquery on your project (which i don't recommend), follow the steps below
-* All these changes are in the `webpack.common.js`
-
-```javascript
-// At the top of the file add the webpack variable
-const webpack = require('webpack'); 
-
-// Inside the plugins add the following plugin, 
-// Add this below the CopyWebpackPlugin
-new webpack.ProvidePlugin({
-    $: 'jquery',
-    jQuery: 'jquery'
-})
-```
+_TODO link to the deployment page on our wiki_
 
 ### Boilerplate information
 * Craft CMS (clean install)
@@ -93,4 +71,4 @@ new webpack.ProvidePlugin({
     * Clean files plugin ( removes unused css and js files from assets folder )
 
 
-_By Roy Veldman_
+_By Wirelab_
