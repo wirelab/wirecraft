@@ -20,14 +20,15 @@ Before installing you need the following software installed on your local machin
 3. Create database
    - `mysql -u [username]` (add `-p` if you have a password)
    - `create database [database-name];`
-4. Run `./craft setup/index` 
+4. Run `composer install`
+5. Run `./craft setup/index` 
     - Use as CMS username: `wirelab`
     - Generate a password using 1password or another password generator
-5. Run `composer update`
-6. Run `npm install`
-7. Setup the environment file
+6. Run `composer update`
+7. Run `npm install`
+8. Setup the environment file
     - Run `cp .env.example .env` to create the environment file. 
-7. Run `npm run dev` and wait until it opens in your browser
+9. Run `npm run dev` and wait until it opens in your browser
 
 Then, we need to install all the plugins we use into your new project.
 1. Go to `http://localhost:1423/admin` and login using your credentials you set up earlier.
