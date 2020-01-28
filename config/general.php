@@ -30,6 +30,8 @@ return [
         'securityKey' => getenv('SECURITY_KEY'),
         
         'maxUploadFileSize' => 33554432,
+
+        'enableGql' => false,
     ],
 
     // Dev environment settings
