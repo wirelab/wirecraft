@@ -13,7 +13,7 @@
        {% if sites | length > 1 %}
            {% for site in sites %}
                {% if site.id != currentSite.id %}
-                  <link rel="alternate" href="{{ site.baseUrl }}" hreflang="{{ site.language }}" />
+                  <link rel="alternate" href="{{ site.getBaseUrl() }}" hreflang="{{ site.language }}" />
                {% endif %}
            {% endfor %}
        {% endif %}
