@@ -1,0 +1,13 @@
+{
+  "name": "Wirecraft",
+  "description": "Set-up for wirecraft",
+  "repository": "https://github.com/wirelab/wirecraft",
+  "keywords": ["craftcms"],
+  "env": {},
+  "addons": [],
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-php"
+    }
+  ]
+}
