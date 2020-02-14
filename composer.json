@@ -9,7 +9,7 @@
       "homepage": "https://wirelab.nl"
     }
   ],
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "license": "MIT",
   "require": {
     "vlucas/phpdotenv": "^2.4.0",
