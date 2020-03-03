@@ -1,0 +1,30 @@
+{% set currentElement = craft.app.urlManager.matchedElement %}
+{% set sites = craft.app.getSites().getGroupById(currentSite.groupId).getSites() %}
+{% set switcherLinks = [] %}
+
+{% for site in sites if site.baseUrl is not empty %}
+
+    {% set title = craft.app.i18n.getLocaleById(site.language).nativeName %}
+    {% set url = site.getBaseUrl() %}
+    {% if currentElement %}
+        {% set otherLocaleElement = craft.app.getElements().getElementById(currentElement.id, currentElement.className(), site.id) %}
+        {% if otherLocaleElement and otherLocaleElement.enabledForSite %}
+            {% set url = otherLocaleElement.url %}
+        {% endif %}
+    {% endif %}
+
+    {% set switcherLinks = switcherLinks|merge([{
+        url: url,
+        title: title,
+        countryCode: site.language|split('-')|last,
+        current: site.id == currentSite.id ? true : false,
+        language: site.language,
+    }]) %}
+
+{% endfor %}
+
+{% if switcherLinks|length > 1 %}
+    {% for switcherLink in switcherLinks %}
+        <link rel="alternate" href="{{ switcherLink.url }}" hreflang="{{ switcherLink.language }}" />
+    {% endfor %}
+{% endif %}

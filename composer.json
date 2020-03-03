@@ -13,7 +13,7 @@
   "license": "MIT",
   "require": {
     "vlucas/phpdotenv": "^2.4.0",
-    "craftcms/cms": "^3.4.7",
+    "craftcms/cms": "^3.4.9",
     "ether/seo": "^3.6.2",
     "craftcms/redactor": "^2.4.0"
   },

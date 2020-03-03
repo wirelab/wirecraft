@@ -7,16 +7,7 @@
 
       {% do view.registerCssFile("/assets/app.css" | bustThatCache) %}
 
-       {# Set the alternate languages #}
-       {% set sites = craft.app.sites.getAllSites() %}
-
-       {% if sites | length > 1 %}
-           {% for site in sites %}
-               {% if site.id != currentSite.id %}
-                  <link rel="alternate" href="{{ site.getBaseUrl() }}" hreflang="{{ site.language }}" />
-               {% endif %}
-           {% endfor %}
-       {% endif %}
+      {% include 'partials/_hreflang' %}
 
        {% hook "seo" %}
    </head>
