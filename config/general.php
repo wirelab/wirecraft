@@ -32,6 +32,8 @@ return [
         'maxUploadFileSize' => 33554432,
 
         'enableGql' => false,
+
+        'maxRevisions' => 3
     ],
 
     // Dev environment settings
