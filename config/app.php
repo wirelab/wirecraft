@@ -20,6 +20,14 @@
 return [
     'modules' => [
         'CacheBuster' => \modules\cachebuster\CacheBuster::class,
+        'site-module' => [
+            'class' => \modules\sitemodule\SiteModule::class,
+        ],
     ],
-    'bootstrap' => ['CacheBuster'],
+    'bootstrap' => ['CacheBuster', 'site-module'],
+    'components' => [
+        'deprecator' => [
+            'throwExceptions' => YII_DEBUG,
+        ],
+    ]
 ];
