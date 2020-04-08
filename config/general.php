@@ -35,11 +35,11 @@ return [
 
         'maxRevisions' => 3,
 
-        'useEmailAsUsername' => true,
-
         'generateTransformsBeforePageLoad' => true,
 
         'requireMatchingUserAgentForSession' => false,
+
+        'errorTemplatePrefix' => "errors/"
     ],
 
     // Dev environment settings
