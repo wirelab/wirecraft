@@ -33,7 +33,13 @@ return [
 
         'enableGql' => false,
 
-        'maxRevisions' => 3
+        'maxRevisions' => 3,
+
+        'useEmailAsUsername' => true,
+
+        'generateTransformsBeforePageLoad' => true,
+
+        'requireMatchingUserAgentForSession' => false,
     ],
 
     // Dev environment settings
