@@ -24,14 +24,14 @@ const getBrowsersList = env => {
 
 const configureStaticFiles = [
   {
-    context: "./src/fonts",
-    from: "**/*",
-    to: "fonts/"
-  },
-  {
     context: "./src/icons",
     from: "**/*",
     to: "icons/"
+  },
+  {
+    context: "./src/img",
+    from: "**/*",
+    to: "img/"
   }
 ];
 
@@ -56,6 +56,22 @@ const configureBabelLoader = env => {
       }
     }
   };
+};
+
+const configureFontLoader = () => {
+  return {
+    test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+    use: [
+      {
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]',
+          outputPath: 'fonts/',
+          publicPath: 'fonts/'
+        }
+      }
+    ]
+  }
 };
 
 const configureCssLoader = env => {
@@ -127,6 +143,7 @@ module.exports = env => {
         configureBabelLoader(env),
         configureCssLoader(env),
         configureFileLoader(),
+        configureFontLoader(),
         configureVueLoader()
       ]
     },
