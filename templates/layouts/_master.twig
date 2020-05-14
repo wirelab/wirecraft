@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-      {% do view.registerCssFile("/assets/app.css" | bustThatCache) %}
+      <link rel="stylesheet" href="{{ mix("/assets/css/app.css") }}">
 
       {% include 'partials/_hreflang' %}
 
@@ -15,8 +15,7 @@
 
       {% block content %}
       {% endblock %}
-      
 
-      {% do view.registerJsFile("/assets/app.bundle.js" | bustThatCache) %}
+      <script src="{{ mix('/assets/js/app.js') }}"></script>
    </body>
 </html>

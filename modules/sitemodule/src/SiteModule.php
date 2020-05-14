@@ -12,6 +12,8 @@ namespace modules\sitemodule;
 
 use modules\sitemodule\assetbundles\sitemodule\SiteModuleAsset;
 use modules\sitemodule\services\Helper;
+use modules\sitemodule\twig\MixExtension;
+use modules\sitemodule\twig\SiteExtension;
 use modules\sitemodule\variables\SiteVariable;
 
 use Craft;
@@ -107,6 +109,8 @@ class SiteModule extends Module
             }
         );
 
+        $this->_registerTwigExtensions();
+
         // Register our Asset bundle for CP requests
         if (Craft::$app->getRequest()->getIsCpRequest()) {
             Event::on(
@@ -135,6 +139,9 @@ class SiteModule extends Module
         );
     }
 
-    // Protected Methods
-    // =========================================================================
+    private function _registerTwigExtensions()
+    {
+        if(!Craft::$app->request->getIsSiteRequest()) return;
+        Craft::$app->view->registerTwigExtension(new MixExtension());
+    }
 }
