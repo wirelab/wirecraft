@@ -50,7 +50,7 @@ class MixExtension extends AbstractExtension
         }
 
         //Only return the file path relative to the public folder (e.g css/style.css) and not (/public/css/style)
-        return ltrim($manifest[$file], $this->publicDir);
+        return str_replace($this->publicDir, '', $manifest[$file]);
     }
 
     /**
