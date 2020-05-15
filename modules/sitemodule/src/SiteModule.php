@@ -4,8 +4,8 @@
  *
  * Custom site module
  *
- * @link      https://nystudio107.com
- * @copyright Copyright (c) 2019 nystudio107
+ * @link      https://wirelab107.com
+ * @copyright Copyright (c) 2019 wirelab107
  */
 
 namespace modules\sitemodule;
@@ -30,7 +30,7 @@ use yii\base\Module;
 /**
  * Class SiteModule
  *
- * @author    nystudio107
+ * @author    wirelab107
  * @package   SiteModule
  * @since     1.0.0
  *
