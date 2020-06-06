@@ -5,8 +5,13 @@ vendor
 node_modules
 
 !storage/.keep
+web/assets/css/*
+web/assets/js/*
+web/assets/img/*
+web/assets/favicon/*
 web/assets/uploads/*
 !web/assets/uploads/.gitkeep
 
 .DS_Store
 .env
+mix-manifest.json
