@@ -10,10 +10,11 @@
 
 namespace modules\sitemodule;
 
+use craft\events\RegisterUrlRulesEvent;
+use craft\web\UrlManager;
 use modules\sitemodule\assetbundles\sitemodule\SiteModuleAsset;
 use modules\sitemodule\services\Helper;
 use modules\sitemodule\twig\MixExtension;
-use modules\sitemodule\twig\SiteExtension;
 use modules\sitemodule\variables\SiteVariable;
 
 use Craft;
@@ -110,32 +111,17 @@ class SiteModule extends Module
         );
 
         $this->_registerTwigExtensions();
+        $this->registerRoutes();
+    }
 
-        // Register our Asset bundle for CP requests
-        if (Craft::$app->getRequest()->getIsCpRequest()) {
-            Event::on(
-                View::class,
-                View::EVENT_BEFORE_RENDER_TEMPLATE,
-                function (TemplateEvent $event) {
-                    try {
-                        Craft::$app->getView()->registerAssetBundle(SiteModuleAsset::class);
-                    } catch (InvalidConfigException $e) {
-                        Craft::error(
-                            'Error registering AssetBundle - '.$e->getMessage(),
-                            __METHOD__
-                        );
-                    }
-                }
-            );
-        }
-
-        Craft::info(
-            Craft::t(
-                'site-module',
-                '{name} module loaded',
-                ['name' => 'Site']
-            ),
-            __METHOD__
+    private function registerRoutes(): void
+    {
+        Event::on(
+            UrlManager::class,
+            UrlManager::EVENT_REGISTER_SITE_URL_RULES,
+            function (RegisterUrlRulesEvent $event) {
+                $event->rules['api/cookies'] = 'site-module/cookie/consent';
+            }
         );
     }
 
