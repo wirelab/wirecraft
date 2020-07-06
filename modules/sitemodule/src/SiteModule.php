@@ -12,7 +12,6 @@ namespace modules\sitemodule;
 
 use craft\events\RegisterUrlRulesEvent;
 use craft\web\UrlManager;
-use modules\sitemodule\assetbundles\sitemodule\SiteModuleAsset;
 use modules\sitemodule\services\Helper;
 use modules\sitemodule\twig\MixExtension;
 use modules\sitemodule\variables\SiteVariable;
