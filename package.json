@@ -19,5 +19,5 @@
     "cross-env": "^7.0.2",
     "css-loader": "^3.5.3",
     "regenerator-runtime": "^0.13.2"
-  },
+  }
 }
