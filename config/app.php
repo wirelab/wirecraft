@@ -19,12 +19,11 @@
 
 return [
     'modules' => [
-        'CacheBuster' => \modules\cachebuster\CacheBuster::class,
         'site-module' => [
             'class' => \modules\sitemodule\SiteModule::class,
         ],
     ],
-    'bootstrap' => ['CacheBuster', 'site-module'],
+    'bootstrap' => ['site-module'],
     'components' => [
         'deprecator' => [
             'throwExceptions' => YII_DEBUG,

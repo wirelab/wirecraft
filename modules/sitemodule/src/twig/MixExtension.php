@@ -42,7 +42,6 @@ class MixExtension extends AbstractExtension
      */
     public function getVersionedFilePath($file)
     {
-        $file = $this->publicDir . $file;
         $manifest = $this->getManifest();
 
         if (!isset($manifest[$file])) {
@@ -61,7 +60,7 @@ class MixExtension extends AbstractExtension
     protected function getManifest()
     {
         if (null === $this->manifest) {
-            $manifestPath = $this->baseDir.'/'.$this->manifestName;
+            $manifestPath = $this->baseDir."/$this->publicDir/".$this->manifestName;
             $this->manifest = json_decode(file_get_contents($manifestPath), true);
         }
 

@@ -11,9 +11,8 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.setPublicPath(path.resolve('./'))
-    .js('src/js/app.js', 'web/assets/js')
-    .sass('src/scss/app.scss', 'web/assets/css')
-    .copy('src/img', 'web/assets/img')
-    .copy('src/favicon', 'web/assets/favicon')
+mix.setPublicPath(path.normalize('./web'))
+    .js('src/js/app.js', 'assets/js')
+    .sass('src/scss/app.scss', 'assets/css')
+    .copy('src/favicon', 'assets/favicon')
     .version();
