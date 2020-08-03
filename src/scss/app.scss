@@ -1,9 +1,9 @@
+@import 'vendors/index';
+
 @import 'abstracts/fonts';
 @import 'abstracts/mixins';
 @import 'abstracts/variables';
-
-@import 'vendors/bootstrap/overrides';
-@import 'vendors/bootstrap/bootstrap';
+@import 'abstracts/typography';
 
 // Append your component styles here:
 // @import 'components/example-component';

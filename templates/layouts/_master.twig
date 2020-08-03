@@ -5,27 +5,27 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-		<link rel="stylesheet" href="{{ mix("/assets/css/app.css") }}">
+		<link rel="stylesheet" href="{{ mix('/assets/css/app.css') }}">
 
-    {% if craft.app.config.env != 'production' %}
-       <meta name="robots" content="noindex">
-       <meta name="googlebot" content="noindex">
-    {% endif %}
+		{% if craft.app.config.env != 'production' %}
+			<meta name="robots" content="noindex">
+			<meta name="googlebot" content="noindex">
+		{% endif %}
 
-    {% include 'partials/_hreflang' %}
+		{% include 'partials/_hreflang' %}
 
 		{% hook "seo" %}
 
 		{% block script %}{% endblock %}
 	</head>
 
-	{% block body %}
-		<body>
-		{% endblock %}
-
+	<body {% block bodyAttributes %}{% endblock %}>
+	
 		{% block content %}{% endblock %}
 
-		<script src="{{ mix('/assets/js/app.js') }}"></script>
+		<script defer src="{{ mix('/assets/js/manifest.js') }}"></script>
+		<script defer src="{{ mix('/assets/js/vendor.js') }}"></script>
+		<script defer src="{{ mix('/assets/js/app.js') }}"></script>
 
 		{% block latescript %}{% endblock %}
 	</body>
