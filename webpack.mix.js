@@ -28,15 +28,6 @@ mix
     postCss: [cssDeclerationSorter, autoprefixer],
   })
   .webpackConfig({
-    module: {
-      rules: [
-        {
-          test: /\.tsx?$/,
-          loader: 'ts-loader',
-          exclude: /node_modules/,
-        },
-      ],
-    },
     plugins: [
       new GenerateSW({
         swDest: 'assets/js/service-worker.js',
