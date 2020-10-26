@@ -152,9 +152,9 @@ class SiteModule extends Module
             $stagingPassword = $configService->general->stagingPassword;
 
             // Only enable on staging and if password was set
-//            if($configService->env !== 'staging' || $stagingPassword === null) {
-//                return;
-//            }
+            if($configService->env !== 'staging' || $stagingPassword === null) {
+                return;
+            }
 
             // Console and Live Preview requests are fine. Also check for cross-site preview tokens
             if ($request->getIsConsoleRequest() || ($request->getIsLivePreview() || $token !== null || $request->getIsPreview())) {

@@ -41,6 +41,8 @@ To setup the rest of your project, checkout the [Tutorials](https://github.com/w
 ### Common and known issues
 When encountering issues while setting up, or later on in the project, please checkout the wiki page with [Known Issues](https://github.com/wirelab/wirecraft/wiki/Known-Issues).
    
+## Protecting a staging environment
+This boilerplate contains a way of protecting the staging, without
 ## Production build
 Run `npm run build` if you are ready for production, this will minify the javascript and css files.
 
