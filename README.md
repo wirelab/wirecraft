@@ -42,7 +42,18 @@ To setup the rest of your project, checkout the [Tutorials](https://github.com/w
 When encountering issues while setting up, or later on in the project, please checkout the wiki page with [Known Issues](https://github.com/wirelab/wirecraft/wiki/Known-Issues).
    
 ## Protecting a staging environment
-This boilerplate contains a way of protecting the staging, without
+This boilerplate contains a way of protecting the staging, without using htaccess.
+
+To set it up, first:
+1. The environment has to be set to staging
+2. A password needs to be generated, running `site-module/setup/staging-password` will generate and configure a password.
+
+You can then access the staging in two different ways:
+1. Send the client a url that contains the password as a param, this is secure enough as this is mostly to keep the Google bot away:
+`https://foo.bar/?stagingPassword=VALUE_HERE`. The client doesn't have to do anything and a cookie will be set.
+2. If it isn't provided trough the url, the client gets redirected to a page to fill it in.
+
+ 
 ## Production build
 Run `npm run build` if you are ready for production, this will minify the javascript and css files.
 
