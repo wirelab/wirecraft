@@ -23,7 +23,7 @@ return [
         // Control Panel trigger word
         'cpTrigger' => 'admin',
 
-        // Database get's synced
+        // Database get's synced./c
         'useProjectConfigFile' => true,
 
         // The secure key Craft will use for hashing and encrypting data

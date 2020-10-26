@@ -11,6 +11,7 @@
 namespace modules\sitemodule;
 
 use craft\events\RegisterUrlRulesEvent;
+use craft\services\Plugins;
 use craft\web\UrlManager;
 use modules\sitemodule\services\Helper;
 use modules\sitemodule\twig\MixExtension;
@@ -38,16 +39,10 @@ use yii\base\Module;
  */
 class SiteModule extends Module
 {
-    // Static Properties
-    // =========================================================================
-
     /**
      * @var SiteModule
      */
     public static $instance;
-
-    // Public Methods
-    // =========================================================================
 
     /**
      * @inheritdoc
@@ -55,7 +50,13 @@ class SiteModule extends Module
     public function __construct($id, $parent = null, array $config = [])
     {
         Craft::setAlias('@modules/sitemodule', $this->getBasePath());
-        $this->controllerNamespace = 'modules\sitemodule\controllers';
+
+        if(Craft::$app->getRequest()->isConsoleRequest) {
+            $this->controllerNamespace = 'modules\sitemodule\console\controllers';
+        } else {
+            $this->controllerNamespace = 'modules\sitemodule\controllers';
+        }
+
 
         // Translation category
         $i18n = Craft::$app->getI18n();
@@ -128,5 +129,15 @@ class SiteModule extends Module
     {
         if(!Craft::$app->request->getIsSiteRequest()) return;
         Craft::$app->view->registerTwigExtension(new MixExtension());
+    }
+
+    private function _protectStaging()
+    {
+//        Event::on(Plugins::class, Plugins::EVENT_AFTER_LOAD_PLUGINS, function(Event $event) {
+//            $request = Craft::$app->getRequest();
+//            $user = Craft::$app->getUser()->getIdentity();
+//            $token = $request->getToken();
+//        });
+
     }
 }

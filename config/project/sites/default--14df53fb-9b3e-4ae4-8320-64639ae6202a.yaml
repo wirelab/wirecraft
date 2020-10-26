@@ -1,0 +1,8 @@
+baseUrl: $DEFAULT_SITE_URL
+handle: default
+hasUrls: true
+language: en-US
+name: Wirecraft
+primary: true
+siteGroup: 3d7cf836-c223-4496-8363-c0f4dfcfb258
+sortOrder: 1
