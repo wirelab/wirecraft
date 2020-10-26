@@ -1,0 +1,34 @@
+{% extends '_layouts/base' %}
+{% import '_includes/forms' as forms %}
+
+{% set title = 'Site Locked' | t('knock-knock') %}
+{% set bodyClass = 'login' %}
+
+{% block body %}
+
+  <style>
+
+      body { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; }
+
+  </style>
+
+  <form class="login-form" method="get" accept-charset="UTF-8" action="{{ redirect }}">
+    <h1>{{ 'Site locked'}}</h1>
+
+    <div id="login-fields">
+      {{ forms.passwordField({
+        id: 'stagingPassword',
+        placeholder: 'Password',
+        name: 'stagingPassword',
+        autofocus: true,
+        errors: (errors is defined ? errors : null),
+      }) }}
+    </div>
+
+    <div class="buttons">
+      <input class="btn submit" type="submit" value="{{ 'Unlock' | t('knock-knock') }}">
+      <div id="spinner" class="spinner hidden"></div>
+    </div>
+  </form>
+
+{% endblock %}
