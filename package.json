@@ -8,17 +8,30 @@
     "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "watch": "npm run development -- --watch",
     "watch-poll": "npm run watch -- --watch-poll",
+    "serve": "cross-env SERVE=true npm run watch",
     "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --disable-host-check --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "npm run production",
+    "build": "npm run production",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "author": "Wirelab",
   "license": "ISC",
   "devDependencies": {
-    "bootstrap": "^4.4.1",
+    "browser-sync": "^2.26.13",
+    "browser-sync-webpack-plugin": "^2.0.1",
     "cross-env": "^7.0.2",
     "css-loader": "^3.5.3",
+    "dotenv": "^8.2.0",
+    "gulp-connect-php": "^1.0.3",
     "laravel-mix": "^5.0.4",
-    "regenerator-runtime": "^0.13.2"
+    "node-sass": "^5.0.0",
+    "regenerator-runtime": "^0.13.2",
+    "resolve-url-loader": "^3.1.0",
+    "sass": "^1.30.0",
+    "sass-loader": "^10.1.0",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "dependencies": {
+    "core-js": "^3.8.1"
   }
 }

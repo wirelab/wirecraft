@@ -1,0 +1,17 @@
+$content-max-width: 1320px;
+$content-padding: 15px;
+
+.container{
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+
+   width:100%;
+
+   padding:0px $content-padding;
+
+   .content{
+      width:100%;
+      max-width:$content-max-width;
+   }
+}

@@ -12,23 +12,29 @@ Before installing you need the following software installed on your local machin
  3. NodeJS (v12)
  4. PHP (7.2+)
 
-### Installing
-1. Create the project using either composer or git clone:
-    -  Composer: `composer create-project wirelab/wirecraft [projectname]` 
-    -  Git: `git clone https://github.com/wirelab/wirecraft.git [projectname]`
+### Creating project
+1. `git clone https://github.com/wirelab/wirecraft.git [projectname]`
 2. `cd [projectname]` into the project
-3. Create database
-   - `mysql -u [username]` (add `-p` if you have a password)
-   - `create database [database-name];`
-4. Run `composer install`
-5. Setup the environment file
+3. Create database using your favorite DBMS like [Sequel Pro](https://www.sequelpro.com/) or [MySQL Workbench](https://www.mysql.com/products/workbench/) __or__ use the commands below.
+    - `mysql -u [username]` (add `-p` if you have a password)
+    - `create database [database-name];`
+4. Create brand new git
+    - `rm .git`
+    - `git init`
+    - `git branch -m develop`
+    - Create git repository on github
+    - `git remote add origin <url>`
+    - `git push origin develop`
+    
+### Installing
+1. Run `composer install`
+2. Run `npm install`
+3. Setup the environment file
     - Run `cp .env.example .env` to create the environment file. 
-6. Run `./craft setup/index` 
+4. Run `./craft setup` 
     - Use as CMS username: `wirelab`
     - Generate a password using 1password or another password generator
-7. Run `composer update`
-8. Run `npm install`
-9. Run `npm run dev` and wait until it opens in your browser
+5. Run `npm run serve` and wait until it opens in your browser
 
 Then, we need to install all the plugins we use into your new project.
 1. Go to `http://localhost:1423/admin` and login using your credentials you set up earlier.
@@ -46,7 +52,7 @@ This boilerplate contains a way of protecting the staging, without using htacces
 
 To set it up, first:
 1. The environment has to be set to staging
-2. A password needs to be generated, running `site-module/setup/staging-password` will generate and configure a password.
+2. A password needs to be generated, running `./craft site-module/setup/staging-password` will generate and configure a password.
 
 You can then access the staging in two different ways:
 1. Send the client a url that contains the password as a param, this is secure enough as this is mostly to keep the Google bot away:
@@ -66,8 +72,6 @@ _TODO link to the deployment page on our wiki_
     * Starting files ( `app.scss` / `app.js` )
     * Standard mobile mixin ( already includes in `app.scss` ) 
     * Layout folder with `_master.twig` file, which contains basic layout file ( css and js includes aswell as seo plugin )
-* Craft Module
-    * Cache busting (gives the css and js files a version number)
 * Craft Plugins 
     * Entry instructions
     * Super table
@@ -76,13 +80,7 @@ _TODO link to the deployment page on our wiki_
 * Webpack (for compiling css and js)
     * ES6 functionality
     * SCSS
-    * VueJS
-    * File-loader
-    * Babel
     * Copying static assets ( standard fonts and icons )
-    * Minify CSS and JS on production ( prefix included! )
     * Live server with hot reload
-    * Clean files plugin ( removes unused css and js files from assets folder )
-
-
+    
 _By Wirelab_
