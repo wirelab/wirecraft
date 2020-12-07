@@ -15,12 +15,12 @@ mix.setPublicPath(path.normalize('./web'))
     .sass('src/scss/app.scss', 'assets/css')
 
     // Copy folders
-    .copy('src/favicon', 'web/assets/assets/favicon')
-    .copy('src/fonts', 'web/assets/assets/fonts')
-    .copy('src/icons', 'web/assets/assets/icons')
-    .copy('src/img', 'web/assets/assets/img')
-    .copy('src/logos', 'web/assets/assets/logos')
-    .copy('src/videos', 'web/assets/assets/videos')
+    .copy('src/favicon', 'web/assets/favicon')
+    .copy('src/fonts', 'web/assets/fonts')
+    .copy('src/icons', 'web/assets/icons')
+    .copy('src/img', 'web/assets/img')
+    .copy('src/logos', 'web/assets/logos')
+    .copy('src/videos', 'web/assets/videos')
 
     // Browser sync
     .browserSync({
