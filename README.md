@@ -61,26 +61,22 @@ You can then access the staging in two different ways:
 
  
 ## Production build
-Run `npm run build` if you are ready for production, this will minify the javascript and css files.
-
-_TODO link to the deployment page on our wiki_
+Run `npm run production` if you are ready for production, this will minify the javascript and css files.
 
 ### Boilerplate information
 * Craft CMS (clean install)
 * Basic folder structure
-    * Src folder with JS and SCSS
-    * Starting files ( `app.scss` / `app.js` )
+    * Src folder with JS, TS and SCSS
+    * Starting files ( `app.scss` / `app.js` / `index.ts` )
     * Standard mobile mixin ( already includes in `app.scss` ) 
     * Layout folder with `_master.twig` file, which contains basic layout file ( css and js includes aswell as seo plugin )
 * Craft Plugins 
-    * Entry instructions
-    * Super table
     * SEO
     * Redactor
-* Webpack (for compiling css and js)
+* Laravel Mix (for compiling css and js)
     * ES6 functionality
     * SCSS
     * Copying static assets ( standard fonts and icons )
-    * Live server with hot reload
+    * Live server with hot reload (browsersync)
     
 _By Wirelab_
