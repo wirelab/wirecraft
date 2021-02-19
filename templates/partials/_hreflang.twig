@@ -4,7 +4,7 @@
 
 {% for site in sites if site.baseUrl is not empty %}
 
-    {% set title = craft.app.i18n.getLocaleById(site.language).nativeName %}
+    {% set title = craft.app.i18n.getLocaleById(site.language).displayName %}
     {% set url = site.getBaseUrl() %}
     {% if currentElement %}
         {% set otherLocaleElement = craft.app.getElements().getElementById(currentElement.id, currentElement.className(), site.id) %}

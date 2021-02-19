@@ -1,0 +1,21 @@
+// This automatically creates a layout structure where you have a container
+// and content, the content is always centered in the container with a max width
+// its scales automagically and always has the right margin on the sides.
+
+$content-max-width: 1320px;
+$content-padding: 15px;
+
+.container{
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+
+   width:100%;
+
+   padding:0px $content-padding;
+
+   .content{
+      width:100%;
+      max-width:$content-max-width;
+   }
+}

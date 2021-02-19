@@ -1,4 +1,3 @@
-import "core-js/stable";
-import "regenerator-runtime/runtime";
-
+// Consider using src/ts/index.ts instead.
 import "../scss/app.scss";
+import "../ts/index";
