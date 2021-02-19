@@ -20,10 +20,13 @@
        {% hook "seo" %}
    </head>
    <body>
-
+      {% include "components/_navigation.twig" %}
+      
       {% block content %}
       {% endblock %}
-
+      
+      {% include "components/_footer.twig" %}
+      
       <script src="{{ mix('/assets/js/app.js') }}"></script>
    </body>
 </html>
