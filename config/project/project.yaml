@@ -1,17 +1,18 @@
-dateModified: 1603711678
+dateModified: 1615195292
 email:
-  fromEmail: len@wirelab.nl
+  fromEmail: algemeen@wirelab.nl
   fromName: Wirecraft
   transportType: craft\mail\transportadapters\Sendmail
 system:
   edition: solo
   live: true
   name: Wirecraft
-  schemaVersion: 3.5.13
-  timeZone: America/Los_Angeles
+  schemaVersion: 3.6.6
+  timeZone: Europe/Amsterdam
 users:
-  allowPublicRegistration: false
-  defaultGroup: null
+  allowPublicRegistration: true
+  defaultGroup: ''
   photoSubpath: null
   photoVolumeUid: null
   requireEmailVerification: true
+  suspendByDefault: false
