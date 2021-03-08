@@ -32,6 +32,7 @@ Before installing you need the following software installed on your local machin
 3. Setup the environment file
     - Run `cp .env.example .env` to create the environment file. 
 4. Run `./craft setup` 
+    - Can't run craft on MacOS? Make it an executable file: `sudo chmod +x craft`
     - Use as CMS username: `wirelab`
     - Generate a password using 1password or another password generator
 5. Run `npm run serve` and wait until it opens in your browser
