@@ -36,11 +36,13 @@ Before installing you need the following software installed on your local machin
     - Use as CMS username: `wirelab`
     - Generate a password using 1password or another password generator
 5. Run `npm run serve` and wait until it opens in your browser
+    - It is normal to see a `HTTP 404 – Not Found – yii\web\NotFoundHttpException`, we need to setup the backend first.
 
 Then, we need to install all the plugins we use into your new project.
 1. Go to `http://localhost:1423/admin` and login using your credentials you set up earlier.
-2. Click `Settings -> Plugins`
+2. Click `Settings > Plugins`
 3. Install all plugins
+4. Go to `Settings > Sections` and create a section called `Home` if it doesn't exist yet, link it to a template such as `pages/_home` and set it as the default homepage.
 
 #### Setting up your project
 To setup the rest of your project, checkout the [Tutorials](https://github.com/wirelab/wirecraft/wiki/Tutorials)
