@@ -35,8 +35,25 @@ Then, we need to install all the plugins we use into your new project.
 2. Click `Settings -> Plugins`
 3. Install all plugins
 
-#### Setting up your project
+### Setting up your project
 To setup the rest of your project, checkout the [Tutorials](https://github.com/wirelab/wirecraft/wiki/Tutorials)
+
+### Debugging
+Some usefull tips to debug in templates:
+
+```twig
+{{ dump(_context) }}
+{{ dump(_context|keys) }}
+{{ dump(myProductQuery.rawSQL()) }}
+```
+
+When you loose the overview of what template is used at what url, you can use this snippet in each template to show the template name as a regular html comment.
+
+```twig
+{% if craft.app.config.general.devMode %}
+<!-- Template: {{ _self }} -->
+{% endif %}
+```
 
 ### Common and known issues
 When encountering issues while setting up, or later on in the project, please checkout the wiki page with [Known Issues](https://github.com/wirelab/wirecraft/wiki/Known-Issues).
