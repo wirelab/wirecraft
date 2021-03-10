@@ -47,7 +47,7 @@ Some usefull tips to debug in templates:
 {{ dump(myProductQuery.rawSQL()) }}
 ```
 
-When you loose the overview of what template is used at what url, you can use this snippet in each template to show the template name as a regular html comment.
+If you ever lose the overview of what template is used at what url, you can use this snippet in each template to show the template name as a regular html comment.
 
 ```twig
 {% if craft.app.config.general.devMode %}
