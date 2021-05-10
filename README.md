@@ -74,7 +74,8 @@ You can then access the staging in two different ways:
 ## Production build
 Run `npm run build` if you are ready for production, this will minify the javascript and css files.
 
-_TODO link to the deployment page on our wiki_
+[deploying craft applications using GIT](https://wirelab.atlassian.net/wiki/spaces/AL/pages/1517191302/4.+Deploy+Craft+CMS+trough+Git)<br/>
+[craft cms project standards](https://wirelab.atlassian.net/wiki/spaces/AL/pages/1814003713/Craft+CMS+Project+Standards)
 
 ### Boilerplate information
 * Craft CMS (clean install)
