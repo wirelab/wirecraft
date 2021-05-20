@@ -12,7 +12,7 @@ return [
     // Global settings
     '*' => [
         // Default Week Start Day (0 = Sunday, 1 = Monday...)
-        'defaultWeekStartDay' => 0,
+        'defaultWeekStartDay' => 1,
 
         // Enable CSRF Protection (recommended)
         'enableCsrfProtection' => true,
@@ -22,6 +22,9 @@ return [
 
         // Control Panel trigger word
         'cpTrigger' => 'admin',
+        
+        // No admin changes on anything but dev
+        'allowAdminChanges' => false,
 
         // The secure key Craft will use for hashing and encrypting data
         'securityKey' => getenv('SECURITY_KEY'),
@@ -48,6 +51,9 @@ return [
 
         // Dev Mode (see https://craftcms.com/support/dev-mode)
         'devMode' => true,
+        
+        // On dev you're allowed to make admin changes
+        'allowAdminChanges' => true,
 
         'enableTemplateCaching' => false
     ],
