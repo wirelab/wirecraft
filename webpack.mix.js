@@ -1,13 +1,13 @@
 const mix = require('laravel-mix');
 const CompressionPlugin = require('compression-webpack-plugin');
-const homedir = require('os').homedir();
-const useHttps = true;
+const useHttps = process.env.MIX_WEBPACK_HTTPS === 'enabled';
 
+//
 const SSL = () => {
     if (!process.env.SSL_CERT && !process.env.SSL_KEY) {
         return {
-            key: homedir + '/.config/valet/Certificates/' + process.env.PROJECT_NAME + '.key',
-            cert: homedir + '/.config/valet/Certificates/' + process.env.PROJECT_NAME + '.crt'
+            key: `${process.env.MIX_SECURE_PATH}${process.env.MIX_HOST}.key`,
+            cert: `${process.env.MIX_SECURE_PATH}${process.env.MIX_HOST}.crt`,
         };
     }
     return {
@@ -16,10 +16,26 @@ const SSL = () => {
     };
 };
 
+browserSync.init({
+    injectChanges: false,
+    host: process.env.MIX_HOST,
+    proxy: `https://${process.env.MIX_HOST}`,
+    open: "external",
+    files: [
+        "web/assets/css/{*,**/*}.css",
+        "web/assets/js/{*,**/*}.js",
+        "templates/{*,**/*}.twig",
+    ],
+    https: {
+        key: `${process.env.MIX_SECURE_PATH}${process.env.MIX_HOST}.key`,
+        cert: `${process.env.MIX_SECURE_PATH}${process.env.MIX_HOST}.crt`,
+    },
+});
+
 const browserSyncConfig = {
     injectChanges: false,
-    host: process.env.PROJECT_NAME,
-    proxy: 'https://' + process.env.PROJECT_NAME,
+    host: process.env.MIX_HOST,
+    proxy: `https://${process.env.MIX_HOST}`,
     open: 'external',
     files: ['web/assets/css/{*,**/*}.css', 'web/assets/js/{*,**/*}.js', 'templates/{*,**/*}.twig']
 };
